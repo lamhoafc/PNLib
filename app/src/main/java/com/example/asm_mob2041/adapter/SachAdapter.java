@@ -47,9 +47,9 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtMaSach.setText(list.get(position).getMasach());
+        holder.txtMaSach.setText(String.valueOf(list.get(position).getMasach()));
         holder.txtTenSach.setText(list.get(position).getTensach());
-        holder.txtGiaThue.setText(list.get(position).getGiathue());
+        holder.txtGiaThue.setText(String.valueOf(list.get(position).getGiathue()));
         holder.txtMaLoai.setText(list.get(position).getTenloai());
 //        holder.txtTenLoai.setText("Tên loại:" + list.get(position).getTenloai());
 
@@ -93,8 +93,8 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtMaSach = itemView.findViewById(R.id.txtMaSach);
-            txtTenSach = itemView.findViewById(R.id.txtTenSach);
+            txtMaSach = itemView.findViewById(R.id.tvMaSach);
+            txtTenSach = itemView.findViewById(R.id.tvTenSach);
             txtGiaThue = itemView.findViewById(R.id.tvGiaTien);
             txtMaLoai = itemView.findViewById(R.id.tvLoaiSach);
 //            txtTenLoai = itemView.findViewById(R.id.txtTenLoai);
@@ -111,10 +111,10 @@ public class SachAdapter extends RecyclerView.Adapter<SachAdapter.ViewHolder> {
 
         EditText edtTenSach = view.findViewById(R.id.edtTenSach);
         EditText edtTien = view.findViewById(R.id.edtTien);
-        TextView txtMaSach = view.findViewById(R.id.txtMaSach);
+//        TextView txtMaSach = view.findViewById(R.id.txtMaSach);
         Spinner spnLoaiSach = view.findViewById(R.id.spnLoaiSach);
 
-        txtMaSach.setText("Mã sách:" + sach.getMasach());
+//        txtMaSach.setText("Mã sách:" + sach.getMasach());
         edtTenSach.setText(sach.getTensach());
         edtTien.setText(String.valueOf(sach.getGiathue()));
 
