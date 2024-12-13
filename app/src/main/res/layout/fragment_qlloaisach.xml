@@ -17,7 +17,7 @@
         android:id="@+id/edtLoaiSach"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập tên sách" />
+        android:hint="Nhập tên loại sách" />
 
     <Button
         android:id="@+id/btnThem"

@@ -17,7 +17,7 @@ public class ThongKeDAO {
     public ThongKeDAO(Context context){
         dbHelper = new DbHelper(context);
     }
-    public ArrayList<Sach> getTop10(){
+        public ArrayList<Sach> getTop10(){
         ArrayList<Sach> list = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT pm.masach, sc.tensach, COUNT(pm.masach) FROM PHIEUMUON pm, SACH sc WHERE pm.masach = sc.masach GROUP BY pm.masach, sc.tensach ORDER BY COUNT(pm.masach) DESC LIMIT 10", null);
@@ -32,10 +32,11 @@ public class ThongKeDAO {
 
 
 
-    public int getDoanhThu(String ngayBatDau, String ngayKetThuc) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); // Input format
-        SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd"); // Output format
+    public int getDoanhThuTheoKhoangThoiGian(String ngayBatDau, String ngayKetThuc) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); // Định dạng ngày đầu vào
+        SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy"); // Định dạng ngày đầu ra
         try {
+            // Chuyển đổi ngày bắt đầu và ngày kết thúc sang định dạng "yyyy-MM-dd"
             Date startDate = dateFormat.parse(ngayBatDau);
             Date endDate = dateFormat.parse(ngayKetThuc);
             ngayBatDau = outputFormat.format(startDate);
@@ -47,9 +48,8 @@ public class ThongKeDAO {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         int tongTien = 0;
         Cursor cursor = db.rawQuery(
-                "SELECT SUM(sc.giathue) " +
-                        "FROM SACH sc " +
-                        "INNER JOIN PHIEUMUON pm ON sc.masach = pm.masach " +
+                "SELECT SUM(pm.tienthue) " +
+                        "FROM PHIEUMUON pm " +
                         "WHERE pm.ngay BETWEEN ? AND ?",
                 new String[]{ngayBatDau, ngayKetThuc}
         );

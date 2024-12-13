@@ -100,10 +100,10 @@ public class ThongKeDoanhThuFragment extends Fragment {
             public void onClick(View view) {
                 ThongKeDAO thongKeDAO = new ThongKeDAO(getContext());
 
-                String ngaybatdau = edtStart.getText().toString();
-                String ngayketthuc = edtEnd.getText().toString();
+                String ngayBatDau = edtStart.getText().toString();
+                String ngayKetThuc = edtEnd.getText().toString();
 
-                int doanhthu = thongKeDAO.getDoanhThu(ngaybatdau, ngayketthuc);
+                int doanhthu = thongKeDAO.getDoanhThuTheoKhoangThoiGian(ngayBatDau, ngayKetThuc);
 
                 txtKetQua.setText(doanhthu + " VND");
             }

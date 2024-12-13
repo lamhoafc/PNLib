@@ -34,7 +34,7 @@ public class Top10Adapter extends RecyclerView.Adapter<Top10Adapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.txtMaSach.setText(String.valueOf(list.get(position).getMasach()));
+//        holder.txtMaSach.setText(String.valueOf(list.get(position).getMasach()));
         holder.txtTenSach.setText(list.get(position).getTensach());
         holder.txtSoLuongMuon.setText(String.valueOf(list.get(position).getSoluongdamuon()));
     }
